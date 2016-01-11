@@ -3,7 +3,7 @@
 {
     'name' : 'Customer Authentication Information',
     'version' : '1.1',
-    'author' : 'DEVN Soft.',
+    'author' : 'DEVN',
     'category': 'Sales',
     'sequence': 10,
     'summary': 'This module help us to store multiple authentication information for particular customer.',
