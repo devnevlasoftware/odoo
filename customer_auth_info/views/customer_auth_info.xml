@@ -1,0 +1,67 @@
+<openerp>
+    <data>
+        <record id="res_partner__form" model="ir.ui.view">
+        <field name="name">res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+             
+            <xpath expr="//sheet/notebook" position="inside">
+              <page string="Authentication Info.">
+                <field name="auth_ids"/> 
+                </page> 
+            </xpath>
+            
+        </field> 
+        </record>
+
+        <record id="customer_auth_info_form" model="ir.ui.view">
+            <field name="name">customer.auth.info.form</field>
+            <field name="model">customer.auth.info</field>
+            <field name="arch" type="xml">
+                <form string="Authentication Info.">     
+                    <sheet>
+                        <group col='4'>
+                            <field name="login"/> 
+                            <field name="password"/>
+                            <field name="customer_login_type"/>  
+                            <field name="auth_id"/>
+                        </group> 
+                        <group>
+                            <field name="private_key"/>         
+                            <field name="public_key"/> 
+                        
+
+                            <field name="private_file"/>         
+                            <field name="public_file"/> 
+                            <field name="website"/>
+                        </group>                                
+                        <label for="description"/>
+                        <field name="description"/>        
+                    </sheet>                         
+                </form>
+            </field>
+        </record>               
+        <record id="customer_auth_info_tree" model="ir.ui.view">
+            <field name="name">customer.auth.info.tree</field>
+            <field name="model">customer.auth.info</field>
+            <field name="arch" type="xml">
+                <tree string="Authentication Info." >
+                    <field name="login"/>                   
+                    <field name="customer_login_type"/>
+                </tree>
+            </field>
+        </record>
+        <record id="customer_auth_info_action" model="ir.actions.act_window">
+            <field name="name">Authentication Info</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">customer.auth.info</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="customer_auth_info_tree"/>                    
+        </record>
+        <menuitem action="customer_auth_info_action"
+            id="menu_customer_auth_info_action" name="Authentication Info."
+            parent="base.menu_sale_config" sequence="3" />
+    </data>
+</openerp>
